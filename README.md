@@ -8,3 +8,9 @@ laravel-5-boilerplate-for-saas
 <a href="http://traderhub.info" target="_blank">
   <img src="http://traderhub.info/images/AD.jpg" border="0" name="submit" alt="TraderHub - daily stock picks, market signals, stock picking service" />
 </a>
+
+### Features
+* Authentication without forms (support SAAS)
+* ACL(Access Control List) manager
+
+### Installation
