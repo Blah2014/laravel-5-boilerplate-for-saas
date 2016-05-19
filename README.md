@@ -14,7 +14,7 @@ If you found this project helpful please give this repo a star.
 
 ### Features
 * Authentication without forms (support SAAS)
-* ACL(Access Control List) manager
+* ACL (Access Control List) manager
 
 ### Installation
 Simply copy the files across into the appropriate directories, and register the middleware in App\Http\Kernel.php
