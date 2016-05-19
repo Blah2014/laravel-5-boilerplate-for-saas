@@ -26,7 +26,8 @@ domain/
     application/
         index.php
         framework/
-```        
+```      
+'application/' will hold Laravel 5 project
 
 ### Installation
 Simply copy the files across into the appropriate directories, and register the middleware in App\Http\Kernel.php
