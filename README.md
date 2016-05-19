@@ -18,12 +18,19 @@ If you found this project helpful please give this repo a star.
 
 ### Project Structure
 website domain/
+
 ...index.html
+
 ...css/
+
 ...images/
+
 ...js/
+
 ...application/
+
 ......index.php
+
 ......framework/
         
 
