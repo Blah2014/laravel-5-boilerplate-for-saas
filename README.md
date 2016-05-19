@@ -16,6 +16,17 @@ If you found this project helpful please give this repo a star.
 * Authentication without forms (support SAAS)
 * ACL (Access Control List) manager
 
+### Project Structure
+website domain/
+    index.html
+    css/
+    images/
+    js/
+    application/
+        index.php
+        framework/
+        
+
 ### Installation
 Simply copy the files across into the appropriate directories, and register the middleware in App\Http\Kernel.php
 Then specify a 'roles' middleware on the route you'd like to protect, and specify the individual roles as an array:
