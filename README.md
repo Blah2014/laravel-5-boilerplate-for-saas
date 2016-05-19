@@ -17,22 +17,16 @@ If you found this project helpful please give this repo a star.
 * ACL (Access Control List) manager
 
 ### Project Structure
-website domain/
-
-...index.html
-
-...css/
-
-...images/
-
-...js/
-
-...application/
-
-......index.php
-
-......framework/
-        
+```
+domain/
+    index.html
+    css/
+    images/
+    js/
+    application/
+        index.php
+        framework/
+```        
 
 ### Installation
 Simply copy the files across into the appropriate directories, and register the middleware in App\Http\Kernel.php
