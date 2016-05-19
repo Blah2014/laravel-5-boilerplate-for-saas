@@ -25,6 +25,6 @@ Then specify a 'roles' middleware on the route you'd like to protect, and specif
 Route::get('user/{user}', [
      'middleware' => ['auth', 'roles'],
      'uses' => 'UserController@index',
-     'roles' => ['administrator', 'manager']
+     'roles' => ['Administrator', 'Manager']
 ]);
 ```
