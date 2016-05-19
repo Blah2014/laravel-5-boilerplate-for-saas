@@ -14,3 +14,5 @@ laravel-5-boilerplate-for-saas
 * ACL(Access Control List) manager
 
 ### Installation
+Simply copy the files across into the appropriate directories, and register the middleware in App\Http\Kernel.php
+Then specify a 'roles' middleware on the route you'd like to protect, and specify the individual roles as an array:
