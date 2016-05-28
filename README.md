@@ -27,7 +27,7 @@ domain/
         index.php
         framework/
 ```      
-'application/' will hold Laravel 5 project
+'application/' will hold Laravel 5 project file
 
 ### Installation
 Simply copy the files across into the appropriate directories, and register the middleware in App\Http\Kernel.php
@@ -41,3 +41,8 @@ Route::get('user/{user}', [
      'roles' => ['Administrator', 'Manager']
 ]);
 ```
+
+##### Note:
+Because we don't use public folder anymore, you need to make this changes:
+* /Users/dmitriydevayev/Documents/_Projects/LARAVEL/TraderHub/application/framework/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php
+  line 36 change chdir($this->laravel->publicPath()); to chdir('/');
