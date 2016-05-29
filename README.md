@@ -53,3 +53,6 @@ Because we don't use public folder anymore, you need to make this changes:
 * /application/framework/server.php line 17 and 21 **/public** to **/..**
 
 This will help you to run: **php artisan serve**
+
+### Authentication
+**Do not run:** php artisan make:auth (for SAAS we are not going to use server bindings)
