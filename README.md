@@ -44,6 +44,9 @@ Route::get('user/{user}', [
 
 ##### Note:
 Because we don't use public folder anymore, you need to make this changes:
+* /application/index.php line 22 and 36
+  change **/../bootstrap/autoload.php** to **/framework/bootstrap/autoload.php**
+
 * /application/framework/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php
   line 36 change **chdir($this->laravel->publicPath());** to **chdir('/');**
   
