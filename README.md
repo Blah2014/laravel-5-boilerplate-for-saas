@@ -44,9 +44,9 @@ Route::get('user/{user}', [
 
 ##### Note:
 Because we don't use public folder anymore, you need to make this changes:
-* /Users/dmitriydevayev/Documents/_Projects/LARAVEL/TraderHub/application/framework/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php
+* /application/framework/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php
   line 36 change **chdir($this->laravel->publicPath());** to **chdir('/');**
   
-* /Users/dmitriydevayev/Documents/_Projects/LARAVEL/TraderHub/application/framework/server.php line 17 and 21 **/public** to **/..**
+* /application/framework/server.php line 17 and 21 **/public** to **/..**
 
 This will help you to run: **php artisan serve**
