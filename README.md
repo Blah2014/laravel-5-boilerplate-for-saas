@@ -70,3 +70,96 @@ public function __construct()
     $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'register', 'login']]);
 }
 ```
+
+```php
+protected function validator(array $data)
+{
+    return Validator::make($data, [
+        'first_name' => 'required|max:255',
+        'last_name' => 'required|max:255',
+        'email' => 'required|email|max:255|unique:users|confirmed',
+        'password' => 'required|min:6|confirmed',
+    ]);
+}
+```
+
+```php
+protected function create(array $data)
+{   
+    return User::create([
+        'first_name' => $data['first_name'],
+        'last_name' => $data['last_name'],
+        'email' => $data['email'],
+        'password' => bcrypt($data['password']),
+        'ip_address' => $data['ip_address'],
+    ]);
+}
+```
+
+```php
+public function register(Request $request)
+{
+    $validator = $this->validator($request->all());
+
+    // Validate
+    if ($validator->fails()) {
+        return response()
+        ->json($validator->errors());
+    }
+    
+    // Add ip address
+    $requestArray = $request->all();
+    $requestArray['ip_address'] = $request->ip();
+
+    // Create user then login
+    Auth::guard($this->getGuard())->login($this->create($requestArray));
+
+    return response()
+        ->json(Auth::user());
+}
+
+public function login(Request $request)
+{
+    if(Auth::check()){
+        $this->logout();
+    }
+    
+    // If the class is using the ThrottlesLogins trait, we can automatically throttle
+    // the login attempts for this application. We'll key this by the username and
+    // the IP address of the client making these requests into this application.
+    $throttles = $this->isUsingThrottlesLoginsTrait();
+
+    if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+        $this->fireLockoutEvent($request);
+
+        $seconds = $this->secondsRemainingOnLockout($request);
+    
+        return response()
+            ->json($this->getLockoutErrorMessage($seconds));
+    }
+    
+    
+    if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+        // Authentication passed...
+
+        return response()
+          ->json(Auth::user());
+    } else {
+        
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        if ($throttles && ! $lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+        
+        return response()
+            ->json($this->getFailedLoginMessage());
+    }
+}
+
+public function logout()
+{
+    Auth::logout();
+}
+```
