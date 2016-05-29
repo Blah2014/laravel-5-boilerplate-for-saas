@@ -24,8 +24,8 @@ domain/
     images/
     js/
     application/
-        index.php
-        framework/
+        index.php  (public folder content is here...)
+        framework/ (all other files of laravel is here...)
 ```      
 'application/' will hold Laravel 5 project file
 
