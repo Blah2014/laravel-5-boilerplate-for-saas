@@ -298,7 +298,6 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             // Authentication passed...
             
-            
             return response()
              ->json(Auth::user());
         } else {
