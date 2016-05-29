@@ -60,7 +60,7 @@ This will help you to run: **php artisan serve**
 ##### AuthController.php
 /application/framework/app/Http/Controllers/Auth/AuthController.php
 
-**Add/Edit:**
+####### Add/Edit:#######
 * use Illuminate\Support\Facades\Auth;
 * use Illuminate\Http\Request;
 
