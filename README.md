@@ -56,3 +56,17 @@ This will help you to run: **php artisan serve**
 
 ### Authentication
 **Do not run:** php artisan make:auth (for SAAS we are not going to use server bindings)
+
+##### AuthController.php
+/application/framework/app/Http/Controllers/Auth/AuthController.php
+
+**Add/Edit:**
+* use Illuminate\Support\Facades\Auth;
+* use Illuminate\Http\Request;
+
+```php
+public function __construct()
+{
+    $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'register', 'login']]);
+}
+```
