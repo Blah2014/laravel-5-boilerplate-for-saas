@@ -9,6 +9,11 @@ laravel-5-boilerplate-for-saas
   <img src="http://traderhub.info/images/AD.jpg" border="0" name="submit" alt="TraderHub - daily stock picks, market signals, stock picking service" />
 </a>
 
+### Index
+* [Features](#features)
+* [Project Structure](#project-structure)
+* [Installation](#installation)
+
 ### Note:
 If you found this project helpful please give this repo a star.
 
