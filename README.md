@@ -13,6 +13,11 @@ laravel-5-boilerplate-for-saas
 * [Features](#features)
 * [Project Structure](#project-structure)
 * [Installation](#installation)
+* [Authentication](#authentication)
+  * Usage
+    * Register 
+    * Login
+    * Logout
 
 ### Note:
 If you found this project helpful please give this repo a star.
