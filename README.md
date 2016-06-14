@@ -18,6 +18,10 @@ laravel-5-boilerplate-for-saas
     * [Register](#register) 
     * [Login](#login)
     * [Logout](#logout)
+* [Password](#password)
+  * [Password Usage](#authentication-usage)
+    * [Send a reset link to the given user](#register) 
+    * [Reset the given user's password](#login)
 
 ### Note:
 If you found this project helpful please give this repo a star.
@@ -239,4 +243,14 @@ public function logout()
 
 **url**: http://your-domain/application/logout
 
+### Password
 
+### Password Usage
+
+---
+
+##### Send a reset link to the given user:
+
+---
+
+##### Reset the given user's password:
