@@ -280,8 +280,57 @@ public function sendResetLinkEmail(Request $request)
             return response()
                 ->json(trans($response));
     }
+}
+```
+
+```php
+protected function validator(array $data)
+{
+    return Validator::make($data, [
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|confirmed|min:6',
+    ]);
+}
+/**
+ * Reset the given user's password.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
+public function reset(Request $request)
+{
+   
+    $validator = $this->validator($request->all());
+
+    // Validate
+    if ($validator->fails()) {
+        return response()
+        ->json($validator->errors());
+    }
     
-    //dump(parse_url(url()->previous())['path']);
+    $credentials = $request->only(
+        'email', 'password', 'password_confirmation', 'token'
+    );
+
+
+    $broker = $this->getBroker();
+
+    $response = Password::broker($broker)->reset($credentials, function ($user, $password) {
+        $this->resetPassword($user, $password);
+    });
+
+    switch ($response) {
+        case Password::PASSWORD_RESET:
+            //return $this->getResetSuccessResponse($response);
+            return response()
+                ->json(trans($response));
+
+        default:
+            //return $this->getResetFailureResponse($request, $response);
+            return response()
+                ->json(trans($response));
+    }
 }
 ```
 
@@ -300,3 +349,16 @@ public function sendResetLinkEmail(Request $request)
 ---
 
 ##### Reset the given user's password:
+
+**method**: POST
+
+**url**: http://your-domain/application/password/reset
+
+// you can get token from email link on request
+**token**: 9e68a5600ca0729ab294f8a413dcb5acdcf790c20b7e7079109cd41227dc44cb 
+
+**email**: test@test.com
+
+**password**: myPassword
+
+**password_confirmation**: myPassword
