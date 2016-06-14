@@ -14,8 +14,8 @@ laravel-5-boilerplate-for-saas
 * [Project Structure](#project-structure)
 * [Installation](#installation)
 * [Authentication](#authentication)
-  * Usage
-    * Register 
+  * [Usage](#usage)
+    * [Register](#register) 
     * Login
     * Logout
 
@@ -353,3 +353,16 @@ class AuthController extends Controller
     }
 }
 ```
+
+### Usage
+##### Register
+method: POST
+url: http://your-domain/application/register
+first_name: John
+last_name: Doe
+email: test@test.com
+email_confirmation: test@test.com
+password: myPassword
+password_confirmation: myPassword
+
+
