@@ -356,7 +356,9 @@ class AuthController extends Controller
 
 ### Usage
 
-##### Register
+---
+
+##### Register:
 
 **method**: POST
 
