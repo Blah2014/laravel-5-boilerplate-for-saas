@@ -21,7 +21,7 @@ laravel-5-boilerplate-for-saas
 * [Password](#password)
   * [Password Usage](#authentication-usage)
     * [Send a reset link to the given user](#send-a-reset-link-to-the-given-user) 
-    * [Reset the given user's password](#login)
+    * [Reset the given user's password](#reset-the-given-users-password)
 
 ### Note:
 If you found this project helpful please give this repo a star.
@@ -250,6 +250,12 @@ public function logout()
 ---
 
 ##### Send a reset link to the given user:
+
+**method**: POST
+
+**url**: http://your-domain/application/password/email
+
+**email**: test@test.com
 
 ---
 
