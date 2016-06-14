@@ -14,7 +14,7 @@ laravel-5-boilerplate-for-saas
 * [Project Structure](#project-structure)
 * [Installation](#installation)
 * [Authentication](#authentication)
-  * [Usage](#usage)
+  * [Authentication Usage](#authentication-usage)
     * [Register](#register) 
     * Login
     * Logout
@@ -354,7 +354,7 @@ class AuthController extends Controller
 }
 ```
 
-### Usage
+### Authentication Usage
 
 ---
 
