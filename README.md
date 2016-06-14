@@ -245,6 +245,46 @@ public function logout()
 
 ### Password
 
+#### PasswordController.php
+/application/framework/app/Http/Controllers/Auth/PasswordController.php
+
+###### Add/Edit: ######
+* use Illuminate\Http\Request;
+* use Illuminate\Support\Facades\Password;
+* use Validator;
+
+```php
+/**
+ * Send a reset link to the given user.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
+public function sendResetLinkEmail(Request $request)
+{
+    $this->validate($request, ['email' => 'required|email']);
+
+    $broker = $this->getBroker();
+
+    $response = Password::broker($broker)->sendResetLink(
+        $request->only('email'), $this->resetEmailBuilder()
+    );
+
+    switch ($response) {
+        case Password::RESET_LINK_SENT:
+            return response()
+                ->json(trans($response));
+
+        case Password::INVALID_USER:
+        default:
+            return response()
+                ->json(trans($response));
+    }
+    
+    //dump(parse_url(url()->previous())['path']);
+}
+```
+
 ### Password Usage
 
 ---
