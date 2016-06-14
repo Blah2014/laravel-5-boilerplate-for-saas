@@ -40,6 +40,10 @@ domain/
     application/
         index.php  (public folder content is here...)
         framework/ (all other files of laravel is here...)
+            .htaccess (because we don't use public folder add this file to protect your project)
+                Order deny,allow
+                Deny from all
+                #Allow from 127.0.0.1
 ```      
 'application/' will hold Laravel 5 project file
 
