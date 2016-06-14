@@ -79,6 +79,17 @@ line: 31 - \App\Http\Middleware\VerifyCsrfToken::class
 ###### Add: ######
 Route::auth();
 
+#### User.php
+/application/framework/app/User.php
+
+###### Edit: ######
+line: 14
+```php
+protected $fillable = [
+    'first_name', 'last_name', 'email', 'password', 'ip_address',
+];
+```
+
 #### AuthController.php
 /application/framework/app/Http/Controllers/Auth/AuthController.php
 
