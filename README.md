@@ -355,6 +355,7 @@ public function reset(Request $request)
 **url**: http://your-domain/application/password/reset
 
 // you can get token from email link on request
+
 **token**: 9e68a5600ca0729ab294f8a413dcb5acdcf790c20b7e7079109cd41227dc44cb 
 
 **email**: test@test.com
