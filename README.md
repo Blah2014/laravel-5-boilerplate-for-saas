@@ -9,6 +9,9 @@ laravel-5-boilerplate-for-saas
   <img src="http://traderhub.info/images/AD.jpg" border="0" name="submit" alt="TraderHub - daily stock picks, market signals, stock picking service" />
 </a>
 
+### Note:
+If you found this project helpful please give this repo a star.
+
 ### Index
 * [Features](#features)
 * [Project Structure](#project-structure)
@@ -22,9 +25,6 @@ laravel-5-boilerplate-for-saas
   * [Password Usage](#authentication-usage)
     * [Send a reset link to the given user](#send-a-reset-link-to-the-given-user) 
     * [Reset the given user's password](#reset-the-given-users-password)
-
-### Note:
-If you found this project helpful please give this repo a star.
 
 ### Features
 * Authentication without forms (support SAAS)
