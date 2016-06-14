@@ -16,8 +16,8 @@ laravel-5-boilerplate-for-saas
 * [Authentication](#authentication)
   * [Authentication Usage](#authentication-usage)
     * [Register](#register) 
-    * Login
-    * Logout
+    * [Login](#login)
+    * [Logout](#logout)
 
 ### Note:
 If you found this project helpful please give this repo a star.
@@ -218,5 +218,25 @@ public function logout()
 **password**: myPassword
 
 **password_confirmation**: myPassword
+
+---
+
+##### Login:
+
+**method**: POST
+
+**url**: http://your-domain/application/login
+
+**email**: test@test.com
+
+**password**: myPassword
+
+---
+
+##### Logout:
+
+**method**: GET
+
+**url**: http://your-domain/application/logout
 
 
