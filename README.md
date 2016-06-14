@@ -20,7 +20,7 @@ laravel-5-boilerplate-for-saas
     * [Logout](#logout)
 * [Password](#password)
   * [Password Usage](#authentication-usage)
-    * [Send a reset link to the given user](#register) 
+    * [Send a reset link to the given user](#send-a-reset-link-to-the-given-user) 
     * [Reset the given user's password](#login)
 
 ### Note:
