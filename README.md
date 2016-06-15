@@ -392,8 +392,48 @@ class Role extends Model
 /application/framework/app/User.php
 ```php
 public function roles() {
-    //dd($this->belongsToMany('App\Role'));
     return $this->belongsToMany('App\Role', 'user_role');
+}
+```
+
+```php
+public function role()
+{
+      return $this->hasOne('App\Role', 'id', 'role_id');
+}
+```
+
+```php
+public function hasRole($roles)
+{
+	$this->have_role = $this->getUserRole();
+
+	if(is_array($roles)){
+		foreach($roles as $need_role){
+			if($this->checkIfUserHasRole($need_role)) {
+				return true;
+			}
+		}
+	} else{
+		return $this->checkIfUserHasRole($roles);
+	}
+	return false;
+}
+```
+
+```php
+private function getUserRole()
+{
+      return $this->roles()->getResults();
+}
+```
+
+```php
+private function checkIfUserHasRole($need_role)
+{
+      $array = json_decode(json_encode($this->have_role), true);
+
+      return (array_search($need_role, array_column($array, 'name')) !== FALSE) ? true : false;
 }
 ```
 
