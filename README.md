@@ -25,7 +25,7 @@ If you found this project helpful please give this repo a star.
   * [Password Usage](#authentication-usage)
     * [Send a reset link to the given user](#send-a-reset-link-to-the-given-user) 
     * [Reset the given user's password](#reset-the-given-users-password)
-* [ACL (Access Control List)]()
+* [ACL (Access Control List: Roles)](#acl-access-control-list-roles)
 
 ### Features
 * Authentication without forms (support SAAS)
@@ -370,3 +370,30 @@ public function reset(Request $request)
 **password_confirmation**: myPassword
 
 ### ACL (Access Control List): Roles
+
+#### Role.php
+/application/framework/app/Role.php
+
+###### Add: ######
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    public function users() {
+        return $this->belongsToMany('App\User', 'user_role');
+    }
+}
+```
+
+###### Edit: ######
+/application/framework/app/User.php
+```php
+public function roles() {
+    //dd($this->belongsToMany('App\Role'));
+    return $this->belongsToMany('App\Role', 'user_role');
+}
+```
+
