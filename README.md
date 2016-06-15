@@ -437,3 +437,66 @@ private function checkIfUserHasRole($need_role)
 }
 ```
 
+###### Edit: ######
+/application/framework/app/Http/Kernel.php
+
+add: **'roles' => \App\Http\Middleware\CheckRole::class,** in protected **$routeMiddleware =**
+
+```php
+protected $routeMiddleware = [
+	'auth' => \App\Http\Middleware\Authenticate::class,
+	'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+	'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+	'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+	'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+	'roles' => \App\Http\Middleware\CheckRole::class,
+];
+```
+
+#### CheckRole.php
+/application/framework/app/Http/Middleware/CheckRole.php
+
+###### Add: ######
+
+```php
+namespace App\Http\Middleware;
+
+use Closure;
+use App\User;
+
+class CheckRole
+{
+	/**
+	* Handle an incoming request.
+	*
+	* @param  \Illuminate\Http\Request  $request
+	* @param  \Closure  $next
+	* @return mixed
+	*/
+	public function handle($request, Closure $next)
+	{
+		// Get the required roles from the route
+		$roles = $this->getRequiredRoleForRoute($request->route());
+		
+		// Check if a role is required for the route, and
+		// if so, ensure that the user has that role.
+		if(($request->user() && $request->user()->hasRole($roles)) || !$roles)
+		{
+			return $next($request);
+		}
+		return response([
+			'error' => [
+				'code' => 'INSUFFICIENT_ROLE',
+				'description' => 'You are not authorized to access this resource.'
+			]
+		], 401);
+	}
+	    
+	private function getRequiredRoleForRoute($route)
+	{
+		$actions = $route->getAction();
+		return isset($actions['roles']) ? $actions['roles'] : null;
+	}
+
+}
+```
