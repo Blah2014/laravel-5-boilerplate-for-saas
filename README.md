@@ -25,6 +25,7 @@ If you found this project helpful please give this repo a star.
   * [Password Usage](#authentication-usage)
     * [Send a reset link to the given user](#send-a-reset-link-to-the-given-user) 
     * [Reset the given user's password](#reset-the-given-users-password)
+* [ACL (Access Control List)]()
 
 ### Features
 * Authentication without forms (support SAAS)
@@ -367,3 +368,5 @@ public function reset(Request $request)
 **password**: myPassword
 
 **password_confirmation**: myPassword
+
+### ACL (Access Control List): Roles
